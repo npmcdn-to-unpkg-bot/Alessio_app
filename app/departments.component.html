@@ -1,0 +1,17 @@
+<div class="animated fadeIn">
+	<h2>{{title}}</h2>
+	<div *ngIf="departments">
+		<div class="container-fluid">
+			<div class="row" *ngFor="let row of departments">
+				<div class="col-sm-4" *ngFor="let department of row">
+					<div	class="myButton text-center" [ngClass]="{'isSelected':selectedDep === 
+					department.name}" (click)="gotoDetail(department.name)">{{department.name}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<router-outlet></router-outlet>
+	</div>
+</div>
