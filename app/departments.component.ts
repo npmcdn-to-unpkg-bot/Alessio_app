@@ -13,14 +13,13 @@ import { ProductsComponent } from './products.component';
 	selector: 'my-departments',
 	templateUrl: 'app/departments.component.html',
 	styleUrls: ['app/departments.component.css'],
-	directives: [ROUTER_DIRECTIVES, ProductsComponent, NgClass]
+	directives: [ROUTER_DIRECTIVES, NgClass]
 })
 @RouteConfig([
 	{
 		path: '/',
 		name: 'Default',
 		component: ProductsComponent,
-		useAsDefault: true,
 	},
 	{
 		path: '/:dep',

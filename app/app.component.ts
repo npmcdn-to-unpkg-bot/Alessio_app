@@ -17,6 +17,16 @@ import { ProductDetailComponent } from './product-detail.component'
 })
 @RouteConfig([
 	{
+		path: '',
+		name: 'Empty',
+		redirectTo: ['/Departments', {param2: 'departments'}, 'Default'],
+	},
+	{
+		path: '/home',
+		name: 'Home',
+		redirectTo: ['/Departments', {param2: 'departments'}, 'Default'],
+	},
+	{
 		path: '/products/:param1',
 		name: 'Products',
 		component: ProductsComponent,
@@ -25,7 +35,6 @@ import { ProductDetailComponent } from './product-detail.component'
 		path: '/:param2/...',
 		name: 'Departments',
 		component: DepartmentsComponent,
-		useAsDefault: true,
 	},
 	{
 		path: '/products/detail/:id',
