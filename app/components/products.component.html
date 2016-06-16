@@ -1,0 +1,11 @@
+<div class="animated fadeIn" *ngIf="isInDOM">
+	<h2>{{title}}</h2>
+		<div	class="myButton text-center" 
+		(click)="addProduct()">Add New Product</div>
+	<div>
+	  <my-datatable [headers]="tableHeaders" 
+	  [items]="products" (editEmitter)="editProduct($event)"
+	  (removeEmitter)="removeProduct($event)">
+	  </my-datatable>
+	</div>
+</div>

@@ -1,0 +1,53 @@
+<div class="container animated fadeIn">
+	<div class="panel panel-default">
+    <div class="panel-heading"></div>
+    <table class="table table-striped" (window:resize)="onResize($event)"
+     [mfData]="items" #mf="mfDataTable" [mfRowsOnPage]="10">
+      <thead>
+        <tr>
+          <th style="width: 5%"></th>
+          <th style="width: 15%">
+            <mfDefaultSorter by="id">{{headers[0]}}</mfDefaultSorter>
+          </th>
+          <th style="width: 15%">
+            <mfDefaultSorter by="editables.name">{{headers[1]}}</mfDefaultSorter>
+          </th>
+          <th style="width: 15%" *ngIf="!isMobile">
+            <mfDefaultSorter by="editables.department">{{headers[2]}}</mfDefaultSorter>
+          </th>
+          <th style="width: 15%" *ngIf="!isMobile">
+            <mfDefaultSorter by="editables.price">{{headers[3]}}</mfDefaultSorter>
+          </th>
+          <th style="width: 5%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of mf.data">
+          <td>
+            <button class="btn btn-xs btn-danger" title="remove" (click)=
+            "removeItem(item)">
+              <span class="glyphicon glyphicon-remove"></span>
+            </button>
+          </td>
+          <td style="font-size: 0.9em">{{item.id}}</td>
+          <td style="font-size: 0.9em">{{item.editables.name}}</td>
+          <td style="font-size: 0.9em" *ngIf="!isMobile">{{item.editables.department}}</td>
+          <td style="font-size: 0.9em" *ngIf="!isMobile">{{item.editables.price}}</td>
+          <td>
+            <button type="button" class="btn btn-xs" style="font-size: 0.7em; font-weight: bold;" 
+            (click)="editItem(item.id)">Details
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="5">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15,1000]">
+            </mfBootstrapPaginator>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
