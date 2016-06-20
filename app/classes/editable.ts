@@ -1,10 +1,10 @@
 export class Editable {
 	department: string;
 	name: string;
-	price: string;
+	price: number;
 	constructor() {
 		this.department = '';
 		this.name = '';
-		this.price = '';
+		this.price = 0.00;
 	}
 }
